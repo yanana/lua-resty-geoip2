@@ -165,7 +165,7 @@ if not ok or type(new_tab) ~= 'function' then
 end
 
 local _M = {}
-_M.version = '0.0.1'
+_M.version = '0.0.2'
 
 local mmdb = ffi.load('libmaxminddb')
 local db = ffi_new('MMDB_s')
