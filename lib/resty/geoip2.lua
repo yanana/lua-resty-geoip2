@@ -323,4 +323,12 @@ function _M.lookup(ip)
     return result
 end
 
+function _M.lookup_country_code(ip)
+  local result = _M.lookup(ip)
+  if not result then
+    return nil
+  end
+  return result:get_value('country', 'iso_code')
+end
+
 return _M
