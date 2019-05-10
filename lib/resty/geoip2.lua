@@ -325,10 +325,17 @@ end
 
 function _M.lookup_country_code(ip)
   local result = _M.lookup(ip)
-  if not result then
-    return nil
+  if err then
+    return nil, err
   end
-  return result:get_value('country', 'iso_code')
+  if not result then
+    return nil, 'not found'
+  end
+  local country_code = result:get_value('country', 'iso_code')
+  if not country_code then
+    return nil, 'not found'
+  end
+  return country_code, nil
 end
 
 return _M
